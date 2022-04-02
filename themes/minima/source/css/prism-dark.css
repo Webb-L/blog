@@ -273,7 +273,9 @@ pre[class*="language-"] > code[class*="language-"] {
   position: relative;
   z-index: 1;
 }
-
+pre {
+  overflow: auto;
+}
 .line-highlight {
   position: absolute;
   left: 0;

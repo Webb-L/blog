@@ -103,5 +103,5 @@ theme: minima
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://github.com/Webb-L/blog.git
+  repo: git@github.com:webb-l/blog.git
   branch: gh-pages

@@ -1,14 +1,14 @@
 ---
 title: Web33 WriteUp 
 date: 2021-05-26 
-tags: CTF Web33 WriteUp
+tags: CTF,Web33,WriteUp
 ---
 
-## 题目
+### 题目
 
 ![index.png](../../images/Web32%20WriteUp/index.png)
 
-## 加密代码：
+### 加密代码：
 
 ```php
 <?php
@@ -70,7 +70,7 @@ chr(24)
   + 答：因为ascii表一共只有128个，如果超出去无法让int型转化成char型。
 + `20| return base64_encode($str);` 将循环结束后的结果进行base64编码并返回给用户。
 
-## 解密代码：
+### 解密代码：
 
 ```php
 <?php
