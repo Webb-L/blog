@@ -103,5 +103,5 @@ theme: brewski
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: git@github.com:webb-l/blog.git
+  repo: git@github.com:Webb-L/blog.git
   branch: gh-pages
