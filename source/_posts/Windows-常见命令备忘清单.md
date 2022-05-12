@@ -49,3 +49,48 @@ tags:
 | net user name /del                         | 删除用户         |
 | net localgroup administrators name /add    | 将某位用户添加到管理员组 |
 | net localgroup administrators name /delete | 将某位用户从管理员组删除 |
+
+## 服务
+
+| 命令                                    | 说明         |
+|---------------------------------------|------------|
+| sc query state= all                   | 查看所有服务     |
+| net start                             | 查看所有开启的服务  |
+| sc query                              | 查看所有开启的服务  |
+| sc query state= active                | 查看所有开启的服务  |
+| sc query state= inactive              | 查看所有关闭的服务  |
+| sc query type= driver                 | 查看所有驱动的服务  |
+| sc query type= service                | 查看所有服务的服务  |
+| sc query 服务名                          | 查看某个服务     |
+| sc stop 服务名                           | 关闭某个服务     |
+| sc start 服务名                          | 开启某个服务     |
+| sc pause 服务名                          | 暂停某个服务     |
+| sc pause 服务名                          | 暂停某个服务     |
+| sc delete 服务名                         | 删除某个服务     |
+| sc create 服务名 binPath= 路径             | 创建一个服务     |
+| sc create 服务名 binPath= 路径 start= auto | 创建一个自启动的服务 |
+| sc config 服务名 binPath= 路径             | 修改某个服务     |
+| sc config 服务名 binPath= 路径 start= auto | 修改某个服务手动启动 |
+| sc description 描述                     | 修改某个服务的描述  |
+
+## 进程
+
+| 命令                                                                     | 说明           |
+|------------------------------------------------------------------------|--------------|
+| tasklist                                                               | 查看所有进程       |
+| tasklist /v                                                            | 查看所有进程       |
+| tasklist /fi "USERNAME ne NT AUTHORITY\SYSTEM" /fi "STATUS eq running" | 查看所有正在运行系统进程 |
+| tasklist /v /fi "STATUS eq running"                                    | 查看所有正在运行进程   |
+| taskkill /pid 进程pid                                                    | 结束进程         |
+| taskkill /t /pid 进程pid                                                 | 结束进程并结束子进程   |
+| taskkill /f /pid 进程pid                                                 | 强制结束进程       |
+| taskkill /pid 2134 /t /fi "username eq administrator"                  | 结束管理员帐户启动的进程 |
+
+## 启动项
+
+| 命令                                                                                                         | 说明       |
+|------------------------------------------------------------------------------------------------------------|----------|
+| wmic startup                                                                                               | 查看启动项    |
+| reg query HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run                                 | 查看启动项    |
+| reg add HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v 启动项名称 /t REG_SZ /d 新注册表项的数据 /f | 添加或修改启动项 |
+| reg delete HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v 启动项名称 /f                    | 删除启动项    |
