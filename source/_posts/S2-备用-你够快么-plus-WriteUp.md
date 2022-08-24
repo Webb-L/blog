@@ -43,8 +43,7 @@ import re
 
 ```bash
 ┌──(kali㉿kali)-[~]
-└─$ curl -d -v "math_result=8566" http://d3d79f7f-c42b-4e90-a426-33c4e97a7120.ctf.nynusec.com/  
-curl: (6) Could not resolve host: math_result=8566
+└─$ curl -d "math_result=8566" http://你的靶机ID.ctf.nynusec.com/  
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <title>500 Internal Server Error</title>
 <h1>Internal Server Error</h1>
@@ -55,7 +54,7 @@ curl: (6) Could not resolve host: math_result=8566
 
 ```bash
 ┌──(kali㉿kali)-[~]
-└─$ curl -d "math_result=8566" -b="session=eyJjdGltZSI6MTY2MTM0Mjg5NiwibWF0aCI6IjM1OTIifQ.YwYUsA.LRbDb0DI4xlDZ72rJl_T17dNEVI" http://d3d79f7f-c42b-4e90-a426-33c4e97a7120.ctf.nynusec.com/ 
+└─$ curl -d "math_result=答案" -b="session=Cookie" http://你的靶机ID.ctf.nynusec.com/ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -86,7 +85,7 @@ import re
 
 ```bash
 ┌──(kali㉿kali)-[~]
-└─$ curl -v http://d3d79f7f-c42b-4e90-a426-33c4e97a7120.ctf.nynusec.com/
+└─$ curl -v http://你的靶机ID.ctf.nynusec.com/
 ...
 < Set-Cookie: session=eyJjdGltZSI6MTY2MTM0MzE2NSwibWF0aCI6IjE0ODAxIn0.YwYVvQ.3Xzezu9mm7lINTHOaRwp5eblpQw; HttpOnly; Path=/
 ...
@@ -100,7 +99,7 @@ import re
 import requests
 import re
 
-url = "http://d3d79f7f-c42b-4e90-a426-33c4e97a7120.ctf.nynusec.com/"
+url = "http://你的靶机ID.ctf.nynusec.com/"
 // 请求靶机题目和Cookie。
 response = requests.get(url)
 // 使用正则匹配题目。

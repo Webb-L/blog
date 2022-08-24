@@ -9,6 +9,7 @@ npm run build
 
 # 进入生成的文件夹
 cd public
+echo "webb-l.top" > CNAME
 
 git init
 git add -A
