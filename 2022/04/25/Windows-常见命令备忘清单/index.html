@@ -1,0 +1,360 @@
+<!DOCTYPE html><html lang="cn"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="index, follow"><title>Windows 常见命令备忘清单 • Webb</title><meta name="description" content="Windows 常见命令备忘清单 - Webb"><link rel="icon" href="/57182600.jpeg"><link rel="stylesheet" href="https://unpkg.com/nanoreset@3.0.1/nanoreset.min.css"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Webb"><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Webb" type="application/atom+xml">
+</head><body><div class="wrap" id="barba-wrapper"><header><h1 class="branding"><a href="/" title="Webb"><img class="logo-image" src="/57182600.jpeg" alt="logo"></a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link no-barba" href="/" target="_self">主页</a></li><li class="nav-list-item"><a class="nav-list-link no-barba" href="/about" target="_self">关于</a></li><li class="nav-list-item"><a class="nav-list-link no-barba" href="/works" target="_self">作品</a></li><li class="nav-list-item"><a class="nav-list-link no-barba" href="/archives" target="_self">档案</a></li><li class="nav-list-item"></ul></header><div class="barba-container"><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Windows 常见命令备忘清单</h1><div class="post-info"><a></a>2022-04-25</div><div class="post-content"><h2 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>netsh advfirewall show allprofiles</td>
+<td>防火墙状态</td>
+</tr>
+<tr>
+<td>netsh firewall show opmode</td>
+<td>防火墙状态</td>
+</tr>
+<tr>
+<td>netsh firewall show state</td>
+<td>防火墙状态</td>
+</tr>
+<tr>
+<td>netsh advfirewall firewall show rule name&#x3D;all</td>
+<td>防火墙所有规则</td>
+</tr>
+<tr>
+<td>netsh advfirewall firewall show rule name&#x3D;http</td>
+<td>防火墙某个规则</td>
+</tr>
+<tr>
+<td>netsh firewall show config</td>
+<td>防火墙配置</td>
+</tr>
+<tr>
+<td>netsh firewall set opmode mode &#x3D; disable</td>
+<td>关闭防火墙</td>
+</tr>
+<tr>
+<td>netsh advfirewall set allprofiles state off</td>
+<td>关闭防火墙</td>
+</tr>
+<tr>
+<td>netsh firewall set opmode mode &#x3D; enable</td>
+<td>启动防火墙</td>
+</tr>
+<tr>
+<td>netsh advfirewall set allprofiles state on</td>
+<td>启动防火墙</td>
+</tr>
+<tr>
+<td>netsh firewall set portopening tcp 80 enable</td>
+<td>添加某个端口</td>
+</tr>
+<tr>
+<td>netsh advfirewall firewall add rule name&#x3D;”http” dir&#x3D;in protocol&#x3D;tcp localport&#x3D;80 action&#x3D;allow</td>
+<td>添加某个端口</td>
+</tr>
+<tr>
+<td>netsh firewall delete portopening protocol&#x3D;TCP port&#x3D;80</td>
+<td>删除某个端口</td>
+</tr>
+<tr>
+<td>netsh advfirewall firewall delete rule name&#x3D;http protocol&#x3D;tcp localport&#x3D;80</td>
+<td>删除某个端口</td>
+</tr>
+<tr>
+<td>netsh firewall show logging</td>
+<td>防火墙日志</td>
+</tr>
+<tr>
+<td>netsh firewall reset</td>
+<td>恢复默认配置</td>
+</tr>
+</tbody></table>
+<h2 id="用户"><a href="#用户" class="headerlink" title="用户"></a>用户</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>net user</td>
+<td>查询所有用户 （本机）</td>
+</tr>
+<tr>
+<td>net user &#x2F;domain</td>
+<td>查询所有用户 （域控）</td>
+</tr>
+<tr>
+<td>whoami &#x2F;all</td>
+<td>查询所有用户 （本机）</td>
+</tr>
+<tr>
+<td>wmic useraccount get &#x2F;ALL &#x2F;format:csv</td>
+<td>查询所有用户 （本机）</td>
+</tr>
+<tr>
+<td>whoami</td>
+<td>查询当前用户</td>
+</tr>
+<tr>
+<td>whoami &#x2F;logonid</td>
+<td>查询当前用户登录ID</td>
+</tr>
+<tr>
+<td>whoami &#x2F;priv</td>
+<td>查询当前用户特权信息</td>
+</tr>
+<tr>
+<td>whoami &#x2F;groups</td>
+<td>查询当前用户的组</td>
+</tr>
+<tr>
+<td>net localgroup administrators</td>
+<td>查询某个组的成员</td>
+</tr>
+<tr>
+<td>quser user</td>
+<td>所有当前在线用户</td>
+</tr>
+<tr>
+<td>quser user &lt;用户名&gt;</td>
+<td>当前某个在线用户</td>
+</tr>
+<tr>
+<td>qwinsta</td>
+<td>所有当前在线用户</td>
+</tr>
+<tr>
+<td>qwinsta &lt;用户名&gt;</td>
+<td>当前某个在线用户</td>
+</tr>
+<tr>
+<td>query user</td>
+<td>所有当前在线用户</td>
+</tr>
+<tr>
+<td>query user &lt;用户名&gt;</td>
+<td>当前某个在线用户</td>
+</tr>
+<tr>
+<td>net user &lt;用户名&gt; &lt;密码&gt; &#x2F;add</td>
+<td>添加用户</td>
+</tr>
+<tr>
+<td>net user &lt;用户名&gt; *</td>
+<td>修改某个用户密码</td>
+</tr>
+<tr>
+<td>net user &lt;用户名&gt; &#x2F;del</td>
+<td>删除用户</td>
+</tr>
+<tr>
+<td>net localgroup administrators &lt;用户名&gt; &#x2F;add</td>
+<td>将某位用户添加到管理员组</td>
+</tr>
+<tr>
+<td>net localgroup administrators &lt;用户名&gt; &#x2F;delete</td>
+<td>将某位用户从管理员组删除</td>
+</tr>
+</tbody></table>
+<h2 id="服务"><a href="#服务" class="headerlink" title="服务"></a>服务</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>sc query state&#x3D; all</td>
+<td>查看所有服务</td>
+</tr>
+<tr>
+<td>net start</td>
+<td>查看所有开启的服务</td>
+</tr>
+<tr>
+<td>sc query</td>
+<td>查看所有开启的服务</td>
+</tr>
+<tr>
+<td>sc query state&#x3D; active</td>
+<td>查看所有开启的服务</td>
+</tr>
+<tr>
+<td>sc query state&#x3D; inactive</td>
+<td>查看所有关闭的服务</td>
+</tr>
+<tr>
+<td>sc query type&#x3D; driver</td>
+<td>查看所有驱动的服务</td>
+</tr>
+<tr>
+<td>sc query type&#x3D; service</td>
+<td>查看所有服务的服务</td>
+</tr>
+<tr>
+<td>sc query &lt;服务名&gt;</td>
+<td>查看某个服务</td>
+</tr>
+<tr>
+<td>sc stop &lt;服务名&gt;</td>
+<td>关闭某个服务</td>
+</tr>
+<tr>
+<td>sc start &lt;服务名&gt;</td>
+<td>开启某个服务</td>
+</tr>
+<tr>
+<td>sc pause &lt;服务名&gt;</td>
+<td>暂停某个服务</td>
+</tr>
+<tr>
+<td>sc pause &lt;服务名&gt;</td>
+<td>暂停某个服务</td>
+</tr>
+<tr>
+<td>sc delete &lt;服务名&gt;</td>
+<td>删除某个服务</td>
+</tr>
+<tr>
+<td>sc create &lt;服务名&gt; binPath&#x3D; &lt;路径&gt;</td>
+<td>创建一个服务</td>
+</tr>
+<tr>
+<td>sc create &lt;服务名&gt; binPath&#x3D; &lt;路径&gt; start&#x3D; auto</td>
+<td>创建一个自启动的服务</td>
+</tr>
+<tr>
+<td>sc config &lt;服务名&gt; binPath&#x3D; &lt;路径&gt;</td>
+<td>修改某个服务</td>
+</tr>
+<tr>
+<td>sc config &lt;服务名&gt; binPath&#x3D; &lt;路径&gt; start&#x3D; auto</td>
+<td>修改某个服务手动启动</td>
+</tr>
+<tr>
+<td>sc description &lt;描述&gt;</td>
+<td>修改某个服务的描述</td>
+</tr>
+</tbody></table>
+<h2 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>tasklist</td>
+<td>查看所有进程</td>
+</tr>
+<tr>
+<td>tasklist &#x2F;v</td>
+<td>查看所有进程</td>
+</tr>
+<tr>
+<td>tasklist &#x2F;fi “USERNAME ne NT AUTHORITY\SYSTEM” &#x2F;fi “STATUS eq running”</td>
+<td>查看所有正在运行系统进程</td>
+</tr>
+<tr>
+<td>tasklist &#x2F;v &#x2F;fi “STATUS eq running”</td>
+<td>查看所有正在运行进程</td>
+</tr>
+<tr>
+<td>taskkill &#x2F;pid &lt;进程pid&gt;</td>
+<td>结束进程</td>
+</tr>
+<tr>
+<td>taskkill &#x2F;t &#x2F;pid &lt;进程pid&gt;</td>
+<td>结束进程并结束子进程</td>
+</tr>
+<tr>
+<td>taskkill &#x2F;f &#x2F;pid &lt;进程pid&gt;</td>
+<td>强制结束进程</td>
+</tr>
+<tr>
+<td>taskkill &#x2F;pid 2134 &#x2F;t &#x2F;fi “username eq administrator”</td>
+<td>结束管理员帐户启动的进程</td>
+</tr>
+</tbody></table>
+<h2 id="启动项"><a href="#启动项" class="headerlink" title="启动项"></a>启动项</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>wmic startup</td>
+<td>查看启动项</td>
+</tr>
+<tr>
+<td>reg query HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run</td>
+<td>查看启动项</td>
+</tr>
+<tr>
+<td>reg add HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run &#x2F;v &lt;启动项名称&gt; &#x2F;t REG_SZ &#x2F;d &lt;新注册表项的数据&gt; &#x2F;f</td>
+<td>添加或修改启动项</td>
+</tr>
+<tr>
+<td>reg delete HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run &#x2F;v &lt;启动项名称&gt; &#x2F;f</td>
+<td>删除启动项</td>
+</tr>
+</tbody></table>
+<h2 id="共享资源"><a href="#共享资源" class="headerlink" title="共享资源"></a>共享资源</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>net share</td>
+<td>查看所有共享资源</td>
+</tr>
+<tr>
+<td>net share &lt;共享名&gt;&#x3D;&lt;盘符&gt;:&lt;路径&gt;</td>
+<td>创建一个共享资源</td>
+</tr>
+<tr>
+<td>net share &lt;共享名&gt;&#x3D;&lt;盘符&gt;:&lt;路径&gt; &#x2F;grant:&lt;用户名&gt;,full</td>
+<td>创建一个所有权限的共享资源</td>
+</tr>
+<tr>
+<td>net share &lt;共享名&gt;&#x3D;&lt;盘符&gt;:&lt;路径&gt; &#x2F;remark:&lt;共享资源描述&gt;</td>
+<td>创建一个带有描述的共享资源</td>
+</tr>
+<tr>
+<td>net share &lt;共享名&gt;</td>
+<td>查看某个共享资源</td>
+</tr>
+<tr>
+<td>net share &lt;共享名&gt; &#x2F;delete</td>
+<td>删除某个共享资源</td>
+</tr>
+<tr>
+<td>net use</td>
+<td>查看所有共享资源连接</td>
+</tr>
+<tr>
+<td>net use \<IP>&lt;共享名&gt;</td>
+<td>连接某个共享资源</td>
+</tr>
+<tr>
+<td>net use &lt;盘符&gt;: \<IP>&lt;共享名&gt;</td>
+<td>连接某个共享资源成功后挂载到某个盘符</td>
+</tr>
+<tr>
+<td>net use \<IP>&lt;共享名&gt; &#x2F;delete</td>
+<td>删除某个连接成功共享资源</td>
+</tr>
+<tr>
+<td>net use &lt;盘符&gt;: \<IP>&lt;共享名&gt; &#x2F;delete</td>
+<td>删除某个有挂载盘符的共享资源</td>
+</tr>
+</tbody></table>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2022/04/30/Kali-Linux%E5%AE%89%E8%A3%85BurpSuite%E7%A0%B4%E8%A7%A3%E7%89%88/">prev</a><a class="next" href="/2022/04/25/tools/metasploit%E5%92%8CCobaltStrike%E8%81%94%E5%8A%A8/">next</a></div><div class="copyright"><p>&copy; 2022 <a href="http://webb-l.top">Webb</a><br>Powered by <a href="https://hexo.io/" rel="noreferrer" target="_blank">Hexo</a></p></div></footer></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/barba.js/1.0.0/barba.min.js"></script><script>document.addEventListener('DOMContentLoaded', function() {
+    Barba.Pjax.start()
+})</script></body></html>

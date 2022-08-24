@@ -1,0 +1,384 @@
+<!DOCTYPE html><html lang="cn"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="index, follow"><title>smbclient 命令备忘录 • Webb</title><meta name="description" content="smbclient 命令备忘录 - Webb"><link rel="icon" href="/57182600.jpeg"><link rel="stylesheet" href="https://unpkg.com/nanoreset@3.0.1/nanoreset.min.css"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Webb"><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Webb" type="application/atom+xml">
+</head><body><div class="wrap" id="barba-wrapper"><header><h1 class="branding"><a href="/" title="Webb"><img class="logo-image" src="/57182600.jpeg" alt="logo"></a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link no-barba" href="/" target="_self">主页</a></li><li class="nav-list-item"><a class="nav-list-link no-barba" href="/about" target="_self">关于</a></li><li class="nav-list-item"><a class="nav-list-link no-barba" href="/works" target="_self">作品</a></li><li class="nav-list-item"><a class="nav-list-link no-barba" href="/archives" target="_self">档案</a></li><li class="nav-list-item"></ul></header><div class="barba-container"><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">smbclient 命令备忘录</h1><div class="post-info"><a></a>2022-05-30</div><div class="post-content"><blockquote>
+<p>使用该命令的前提您的目标设备必须要开启smb服务和设置共享文件。</p>
+</blockquote>
+<h2 id="语法："><a href="#语法：" class="headerlink" title="语法："></a>语法：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">smbclient [选项] 服务 &lt;密码&gt;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="参数："><a href="#参数：" class="headerlink" title="参数："></a>参数：</h2><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-M, –message&#x3D;HOST</td>
+<td>发信息</td>
+</tr>
+<tr>
+<td>-I, –ip-address&#x3D;IP</td>
+<td>使用此 IP 连接到</td>
+</tr>
+<tr>
+<td>-E, –stderr</td>
+<td>将消息写入标准错误而不是标准输出</td>
+</tr>
+<tr>
+<td>-L, –list&#x3D;HOST</td>
+<td>获取主机上可用的共享列表</td>
+</tr>
+<tr>
+<td>-T, –tar&#x3D;&lt;c&#x2F;x&gt;IXFvgbNan</td>
+<td>命令行tar</td>
+</tr>
+<tr>
+<td>-D, –directory&#x3D;DIR</td>
+<td>从某个目录开始</td>
+</tr>
+<tr>
+<td>-c, –command&#x3D;STRING</td>
+<td>执行命令</td>
+</tr>
+<tr>
+<td>-b, –send-buffer&#x3D;BYTES</td>
+<td>更改发送&#x2F;发送缓冲区</td>
+</tr>
+<tr>
+<td>-t, –timeout&#x3D;SECONDS</td>
+<td>更改每个操作的超时</td>
+</tr>
+<tr>
+<td>-p, –port&#x3D;PORT</td>
+<td>要连接的端口</td>
+</tr>
+<tr>
+<td>-g, –grepable</td>
+<td>产生 grepable 输出</td>
+</tr>
+<tr>
+<td>-q, –quiet</td>
+<td>禁止显示帮助消息</td>
+</tr>
+<tr>
+<td>-B, –browse</td>
+<td>使用 DNS 浏览 SMB 服务器</td>
+</tr>
+</tbody></table>
+<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>?&#x2F;help 命令</td>
+<td>查看某个命令帮助信息</td>
+</tr>
+<tr>
+<td>allinfo &lt;file&gt;</td>
+<td>显示所有可用信息</td>
+</tr>
+<tr>
+<td>altname &lt;file&gt;</td>
+<td>显示替代名称</td>
+</tr>
+<tr>
+<td>archive &lt;level&gt;</td>
+<td>0&#x3D;忽略存档位<br/>1&#x3D;只获取存档文件<br/>2&#x3D;仅获取存档文件并重置存档位<br/>3&#x3D;获取所有文件并重置存档位</td>
+</tr>
+<tr>
+<td>backup</td>
+<td>切换备份意图状态</td>
+</tr>
+<tr>
+<td>blocksize &lt;number&gt; (默认 20)</td>
+<td>数据块大小</td>
+</tr>
+<tr>
+<td>cancel &lt;jobid&gt;</td>
+<td>取消打印队列条目</td>
+</tr>
+<tr>
+<td>case_sensitive</td>
+<td>将区分大小写的标志切换到服务器</td>
+</tr>
+<tr>
+<td>cd [directory]</td>
+<td>更改&#x2F;报告远程目录</td>
+</tr>
+<tr>
+<td>chmod &lt;src&gt; &lt;mode&gt;</td>
+<td>chmod 使用 UNIX 权限的文件</td>
+</tr>
+<tr>
+<td>du &lt;mask&gt;</td>
+<td>计算当前目录的总大小</td>
+</tr>
+<tr>
+<td>echo &lt;num&gt; &lt;data&gt;</td>
+<td>ping 服务器</td>
+</tr>
+<tr>
+<td>exit\q\quit</td>
+<td>注销服务器</td>
+</tr>
+<tr>
+<td>get  &lt;remote name&gt; [local name]</td>
+<td>获取文件</td>
+</tr>
+<tr>
+<td>getfacl &lt;file name&gt;</td>
+<td>获取文件的 POSIX ACL（仅限 UNIX 扩展）</td>
+</tr>
+<tr>
+<td>geteas &lt;file name&gt;</td>
+<td>获取文件的 EA 列表</td>
+</tr>
+<tr>
+<td>hardlink &lt;src&gt; &lt;dest&gt;</td>
+<td>创建 Windows 硬链接</td>
+</tr>
+<tr>
+<td>history</td>
+<td>显示命令历史</td>
+</tr>
+<tr>
+<td>iosize &lt;number&gt; (default 64512)</td>
+<td>io 大小</td>
+</tr>
+<tr>
+<td>lcd [directory]</td>
+<td>更改&#x2F;报告本地当前工作目录</td>
+</tr>
+<tr>
+<td>link &lt;oldname&gt; &lt;newname&gt;</td>
+<td>创建 UNIX 硬链接</td>
+</tr>
+<tr>
+<td>lock &lt;fnum&gt; [r&#x2F;w] &lt;hex-start&gt; &lt;hex-len&gt;</td>
+<td>设置 POSIX 锁</td>
+</tr>
+<tr>
+<td>lowercase</td>
+<td>切换获取文件名的小写</td>
+</tr>
+<tr>
+<td>ls&#x2F;l &lt;mask&gt;</td>
+<td>list the contents of the current directory</td>
+</tr>
+<tr>
+<td>mask &lt;mask&gt;</td>
+<td>屏蔽所有文件名</td>
+</tr>
+<tr>
+<td>md&#x2F;mkdir &lt;directory&gt;</td>
+<td>创建一个目录</td>
+</tr>
+<tr>
+<td>mget &lt;mask&gt;</td>
+<td>获取所有匹配的文件</td>
+</tr>
+<tr>
+<td>more &lt;remote name&gt;</td>
+<td>查看远程文件</td>
+</tr>
+<tr>
+<td>mput &lt;mask&gt;</td>
+<td>把所有匹配的文件</td>
+</tr>
+<tr>
+<td>newer &lt;file&gt;</td>
+<td>仅 mget 比指定本地文件更新的文件</td>
+</tr>
+<tr>
+<td>notify &lt;file&gt;</td>
+<td>获取有关目录更改的通知</td>
+</tr>
+<tr>
+<td>open &lt;mask&gt;</td>
+<td>打开一个文件</td>
+</tr>
+<tr>
+<td>posix</td>
+<td>打开所有 POSIX 功能</td>
+</tr>
+<tr>
+<td>posix_encrypt &lt;domain&gt; &lt;user&gt; &lt;password&gt;</td>
+<td>启动传输加密</td>
+</tr>
+<tr>
+<td>posix_open &lt;name&gt; 0&lt;mode&gt;</td>
+<td>open_flags 模式使用 POSIX 接口打开文件</td>
+</tr>
+<tr>
+<td>posix_mkdir &lt;name&gt; 0&lt;mode&gt;</td>
+<td>使用 POSIX 接口创建目录</td>
+</tr>
+<tr>
+<td>posix_rmdir &lt;name&gt;</td>
+<td>removes a directory using POSIX interface</td>
+</tr>
+<tr>
+<td>posix_unlink &lt;name&gt;</td>
+<td>使用 POSIX 接口删除文件</td>
+</tr>
+<tr>
+<td>posix_whoami</td>
+<td>使用 POSIX 接口返回登录用户信息</td>
+</tr>
+<tr>
+<td>print &lt;file name&gt;</td>
+<td>打印文件</td>
+</tr>
+<tr>
+<td>prompt</td>
+<td>切换提示输入 mget 和 mput 的文件名</td>
+</tr>
+<tr>
+<td>put &lt;local name&gt; [remote name]</td>
+<td>上传一个文件</td>
+</tr>
+<tr>
+<td>pwd</td>
+<td>显示当前远程目录（与没有参数的 ‘cd’ 相同）</td>
+</tr>
+<tr>
+<td>queue</td>
+<td>显示打印队列</td>
+</tr>
+<tr>
+<td>readlink &lt;filename&gt;</td>
+<td>对符号链接执行 UNIX 扩展 readlink 调用</td>
+</tr>
+<tr>
+<td>rd&#x2F;rm&#x2F;rmdir &lt;directory&gt;</td>
+<td>删除目录</td>
+</tr>
+<tr>
+<td>recurse</td>
+<td>切换 mget 和 mput 的目录递归</td>
+</tr>
+<tr>
+<td>reget &lt;remote name&gt; [local name]</td>
+<td>获取在本地文件末尾重新启动的文件</td>
+</tr>
+<tr>
+<td>rename &lt;src&gt; &lt;dest&gt;</td>
+<td>重命名一些文件</td>
+</tr>
+<tr>
+<td>reput &lt;local name&gt; [remote name]</td>
+<td>将文件重新启动到远程文件的末尾</td>
+</tr>
+<tr>
+<td>showacls</td>
+<td>切换是否显示 ACL</td>
+</tr>
+<tr>
+<td>setea &lt;file name&gt; &lt;eaname&gt; &lt;eaval&gt;</td>
+<td>设置文件的 EA</td>
+</tr>
+<tr>
+<td>setmode &lt;file name&gt; &lt;setmode string&gt;</td>
+<td>更改文件模式</td>
+</tr>
+<tr>
+<td>scopy &lt;src&gt; &lt;dest&gt;</td>
+<td>服务器端拷贝文件</td>
+</tr>
+<tr>
+<td>stat &lt;file name&gt;</td>
+<td>对文件执行 UNIX 扩展 stat 调用</td>
+</tr>
+<tr>
+<td>symlink &lt;oldname&gt; &lt;newname&gt;</td>
+<td>创建一个 UNIX 符号链接</td>
+</tr>
+<tr>
+<td>tar &lt;c&#x2F;x&gt;[IXFvbgNan]</td>
+<td>当前目录到&#x2F;从 &lt;文件名&gt;</td>
+</tr>
+<tr>
+<td>tarmode &lt;full&#x2F;inc&#x2F;reset&#x2F;noreset&gt;</td>
+<td>tar 对归档位的行为</td>
+</tr>
+<tr>
+<td>timeout &lt;number&gt;</td>
+<td>以秒为单位设置每个操作的超时时间（默认 20）</td>
+</tr>
+<tr>
+<td>translate</td>
+<td>切换用于打印的文本翻译</td>
+</tr>
+<tr>
+<td>unlock &lt;fnum&gt; &lt;hex-start&gt; &lt;hex-len&gt;</td>
+<td>移除 POSIX 锁</td>
+</tr>
+<tr>
+<td>volume</td>
+<td>print the volume name</td>
+</tr>
+<tr>
+<td>vuid</td>
+<td>change current vuid</td>
+</tr>
+<tr>
+<td>wdel &lt;attrib&gt; &lt;mask&gt;</td>
+<td>通配符删除所有匹配的文件</td>
+</tr>
+<tr>
+<td>logon &lt;username&gt; [&lt;password&gt;]</td>
+<td>建立新的登录</td>
+</tr>
+<tr>
+<td>listconnect</td>
+<td>列出打开的连接</td>
+</tr>
+<tr>
+<td>showconnect</td>
+<td>显示当前活动连接</td>
+</tr>
+<tr>
+<td>tcon &lt;sharename&gt;</td>
+<td>连接到共享</td>
+</tr>
+<tr>
+<td>tdis</td>
+<td>断开共享</td>
+</tr>
+<tr>
+<td>tid</td>
+<td>显示或设置当前 tid (tree-i)</td>
+</tr>
+<tr>
+<td>utimes &lt;file name&gt; &lt;create_time&gt; &lt;access_time&gt; &lt;mod_time&gt; &lt;ctime&gt;</td>
+<td>设定时间</td>
+</tr>
+<tr>
+<td>logoff</td>
+<td>注销（关闭会话）</td>
+</tr>
+</tbody></table>
+<h2 id="例子："><a href="#例子：" class="headerlink" title="例子："></a>例子：</h2><ul>
+<li>显示目标主机可用的共享列表。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">smbclient -L //&lt;ip&gt; -U &lt;用户名&gt;%&lt;密码&gt;</span><br><span class="line"></span><br><span class="line">	Sharename       Type      Comment</span><br><span class="line">	---------       ----      -------</span><br><span class="line">	ADMIN$          Disk      远程管理</span><br><span class="line">	C               Disk      </span><br><span class="line">	C$              Disk      默认共享</span><br><span class="line">	IPC$            IPC       远程 IPC</span><br><span class="line">SMB1 disabled -- no workgroup available</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>连接某个共享列表。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">smbclient //&lt;ip&gt;/共享名称 -U &lt;用户名&gt;%&lt;密码&gt;</span><br><span class="line">Try <span class="string">&quot;help&quot;</span> to get a list of possible commands.</span><br><span class="line">smb: \&gt; </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>设置连接的Windows目录。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">smbclient //&lt;ip&gt;/共享名称 -D Windows  -U &lt;用户名&gt;%&lt;密码&gt;</span><br><span class="line">Try <span class="string">&quot;help&quot;</span> to get a list of possible commands.</span><br><span class="line">smb: \Windows\&gt; </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>连接成功以后执行上传文件命令.</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">smbclient //&lt;ip&gt;/共享名称/ -c <span class="string">&quot;put &lt;文件&gt;&quot;</span> -D &lt;目录&gt; -U &lt;用户名&gt;%&lt;密码&gt;</span><br><span class="line">putting file &lt;文件&gt; as \&lt;目录&gt;\&lt;文件&gt; (71.4 kb/s) (average 71.4 kb/s)</span><br><span class="line"><span class="comment"># 没有权限</span></span><br><span class="line">smbclient //&lt;ip&gt;/共享名称/ -c <span class="string">&quot;put &lt;文件&gt;&quot;</span> -D &lt;目录&gt;  -U &lt;用户名&gt;%&lt;密码&gt;</span><br><span class="line">NT_STATUS_ACCESS_DENIED opening remote file \&lt;目录&gt;\&lt;文件&gt;</span><br></pre></td></tr></table></figure></div></article></div></main><footer><div class="paginator"><a class="prev" href="/2022/06/30/vulntarget-h%20write-up/">prev</a><a class="next" href="/2022/05/17/Linux%E5%8F%8D%E5%BC%B9shell%E5%A4%87%E5%BF%98%E5%BD%95/">next</a></div><div class="copyright"><p>&copy; 2022 <a href="http://webb-l.top">Webb</a><br>Powered by <a href="https://hexo.io/" rel="noreferrer" target="_blank">Hexo</a></p></div></footer></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/barba.js/1.0.0/barba.min.js"></script><script>document.addEventListener('DOMContentLoaded', function() {
+    Barba.Pjax.start()
+})</script></body></html>

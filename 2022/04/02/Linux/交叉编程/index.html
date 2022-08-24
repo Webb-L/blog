@@ -1,0 +1,36 @@
+<!DOCTYPE html><html lang="cn"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="index, follow"><title>Linux C C++ 交叉编程 • Webb</title><meta name="description" content="Linux C C++ 交叉编程 - Webb"><link rel="icon" href="/57182600.jpeg"><link rel="stylesheet" href="https://unpkg.com/nanoreset@3.0.1/nanoreset.min.css"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Webb"><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Webb" type="application/atom+xml">
+</head><body><div class="wrap" id="barba-wrapper"><header><h1 class="branding"><a href="/" title="Webb"><img class="logo-image" src="/57182600.jpeg" alt="logo"></a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link no-barba" href="/" target="_self">主页</a></li><li class="nav-list-item"><a class="nav-list-link no-barba" href="/about" target="_self">关于</a></li><li class="nav-list-item"><a class="nav-list-link no-barba" href="/works" target="_self">作品</a></li><li class="nav-list-item"><a class="nav-list-link no-barba" href="/archives" target="_self">档案</a></li><li class="nav-list-item"></ul></header><div class="barba-container"><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Linux C C++ 交叉编程</h1><div class="post-info"><a></a>2022-04-02</div><div class="post-content"><h3 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h3><ul>
+<li>安装MinGW-w64</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gcc-mingw-w64</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>MinGW-w64使用。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># C</span></span><br><span class="line">i686-w64-mingw32-gcc-win32 main.c -o main.exe</span><br><span class="line"></span><br><span class="line"><span class="comment"># C++</span></span><br><span class="line">i686-w64-mingw32-c++-win32 main.cpp -o main.exe</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><ul>
+<li>这里我利用Clion创建一个C++的项目。</li>
+</ul>
+<p><img src="/../../images/Linux%E4%BA%A4%E5%8F%89%E7%BC%96%E7%A8%8B/create.png" alt="create.png"></p>
+<ul>
+<li>修改<code>CMakeLists.txt</code>文件的内容。</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">cmake_minimum_required(VERSION 3.21)</span><br><span class="line">project(hello_world)</span><br><span class="line"></span><br><span class="line">set(CMAKE_CXX_STANDARD 14)</span><br><span class="line"></span><br><span class="line">add_executable(hello_world main.cpp)</span><br><span class="line"></span><br><span class="line"># 设置交叉编译的目标操作为windows</span><br><span class="line">SET(CMAKE_SYSTEM_NAME Windows)</span><br><span class="line"># 指定c/c++编译器</span><br><span class="line">SET(CMAKE_C_COMPILER i686-w64-mingw32-gcc)</span><br><span class="line">SET(CMAKE_CXX_COMPILER i686-w64-mingw32-g++)</span><br><span class="line">SET(CMAKE_RC_COMPILER i686-w64-mingw32-windres)</span><br><span class="line"># 指定编译目标操作系统版本时的搜索根路径</span><br><span class="line">SET(CMAKE_FIND_ROOT_PATH /usr/i686-w64-mingw32)</span><br><span class="line"></span><br><span class="line"># adjust the default behaviour of the FIND_XXX() commands:</span><br><span class="line"># search headers and libraries in the target environment, search</span><br><span class="line"># programs in the host environment</span><br><span class="line">set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)</span><br><span class="line">set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)</span><br><span class="line">set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)</span><br><span class="line"># 解决找不到libstdc++-6.dll</span><br><span class="line">set(CMAKE_EXE_LINKER_FLAGS &quot;-static-libgcc -static-libstdc++&quot;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>点击<code>重新加载变更</code>或者<code>启用自动重新加载</code>。</li>
+</ul>
+<p><img src="/../../images/Linux%E4%BA%A4%E5%8F%89%E7%BC%96%E7%A8%8B/reload.png" alt="reload.png"></p>
+<ul>
+<li>点击<strong>构建</strong>然后选择<strong>构建‘项目名称’</strong></li>
+</ul>
+<p><img src="/../../images/Linux%E4%BA%A4%E5%8F%89%E7%BC%96%E7%A8%8B/build.png" alt="build.png"></p>
+<ul>
+<li>构建完成之后打开<strong>cmake-build-debug</strong>文件夹下面会生成exe文件。</li>
+</ul>
+<p><img src="/../../images/Linux%E4%BA%A4%E5%8F%89%E7%BC%96%E7%A8%8B/build_finish.png" alt="build_finish.png"></p>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2022/04/06/Android/IntelliJ-IDEA-%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95Android%E5%BA%94%E7%94%A8/">prev</a><a class="next" href="/2021/10/26/SQL/SQLi-LABS/">next</a></div><div class="copyright"><p>&copy; 2022 <a href="http://webb-l.top">Webb</a><br>Powered by <a href="https://hexo.io/" rel="noreferrer" target="_blank">Hexo</a></p></div></footer></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/barba.js/1.0.0/barba.min.js"></script><script>document.addEventListener('DOMContentLoaded', function() {
+    Barba.Pjax.start()
+})</script></body></html>

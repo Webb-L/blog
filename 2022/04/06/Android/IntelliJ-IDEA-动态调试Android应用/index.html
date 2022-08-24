@@ -1,0 +1,67 @@
+<!DOCTYPE html><html lang="cn"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="index, follow"><title>IntelliJ IDEA 动态调试Android应用 • Webb</title><meta name="description" content="IntelliJ IDEA 动态调试Android应用 - Webb"><link rel="icon" href="/57182600.jpeg"><link rel="stylesheet" href="https://unpkg.com/nanoreset@3.0.1/nanoreset.min.css"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Webb"><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Webb" type="application/atom+xml">
+</head><body><div class="wrap" id="barba-wrapper"><header><h1 class="branding"><a href="/" title="Webb"><img class="logo-image" src="/57182600.jpeg" alt="logo"></a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link no-barba" href="/" target="_self">主页</a></li><li class="nav-list-item"><a class="nav-list-link no-barba" href="/about" target="_self">关于</a></li><li class="nav-list-item"><a class="nav-list-link no-barba" href="/works" target="_self">作品</a></li><li class="nav-list-item"><a class="nav-list-link no-barba" href="/archives" target="_self">档案</a></li><li class="nav-list-item"></ul></header><div class="barba-container"><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">IntelliJ IDEA 动态调试Android应用</h1><div class="post-info"><a></a>2022-04-06</div><div class="post-content"><h2 id="打开IntelliJ-IDEA"><a href="#打开IntelliJ-IDEA" class="headerlink" title="打开IntelliJ IDEA"></a>打开IntelliJ IDEA</h2><p><img src="/../../images/IntelliJ-IDEA-%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95Android%E5%BA%94%E7%94%A8/2022-04-06-18-56-59-image.png"></p>
+<h2 id="创建一个新项目"><a href="#创建一个新项目" class="headerlink" title="创建一个新项目"></a>创建一个新项目</h2><ul>
+<li>点击下一步。</li>
+</ul>
+<p><img src="/../../images/IntelliJ-IDEA-%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95Android%E5%BA%94%E7%94%A8/2022-04-06-18-57-38-image.png"></p>
+<ul>
+<li>点击完成。</li>
+</ul>
+<p><img src="/../../images/IntelliJ-IDEA-%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95Android%E5%BA%94%E7%94%A8/2022-04-06-18-59-36-image.png"></p>
+<h2 id="等待项目创建完成"><a href="#等待项目创建完成" class="headerlink" title="等待项目创建完成"></a>等待项目创建完成</h2><p><img src="/../../images/IntelliJ-IDEA-%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95Android%E5%BA%94%E7%94%A8/2022-04-06-19-03-44-image.png"></p>
+<p><img src="/../../images/IntelliJ-IDEA-%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95Android%E5%BA%94%E7%94%A8/2022-04-06-19-04-43-image.png"></p>
+<h2 id="写入一个简单的提示功能"><a href="#写入一个简单的提示功能" class="headerlink" title="写入一个简单的提示功能"></a>写入一个简单的提示功能</h2><p><img src="/../../images/IntelliJ-IDEA-%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95Android%E5%BA%94%E7%94%A8/2022-04-06-19-06-21-image.png"></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.myapplication</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> androidx.appcompat.app.AppCompatActivity</span><br><span class="line"><span class="keyword">import</span> android.os.Bundle</span><br><span class="line"><span class="keyword">import</span> android.view.View</span><br><span class="line"><span class="keyword">import</span> android.widget.Toast</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> : <span class="type">AppCompatActivity</span></span>() &#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState)</span><br><span class="line">        setContentView(R.layout.activity_main)</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 根据id找到应用的应用栏并设置点击事件，点击后显示Hello World!的提示。</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        findViewById&lt;View&gt;(R.id.action_bar).setOnClickListener &#123;</span><br><span class="line">            Toast.makeText(<span class="keyword">this</span>, <span class="string">&quot;Hello World!&quot;</span>, Toast.LENGTH_SHORT).show()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="构建项目"><a href="#构建项目" class="headerlink" title="构建项目"></a>构建项目</h2><p><img src="/../../images/IntelliJ-IDEA-%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95Android%E5%BA%94%E7%94%A8/2022-04-06-19-07-22-image.png"></p>
+<ul>
+<li>构建完成。</li>
+</ul>
+<p><img src="/../../images/IntelliJ-IDEA-%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95Android%E5%BA%94%E7%94%A8/2022-04-06-20-24-36-image.png"></p>
+<h2 id="反编译应用"><a href="#反编译应用" class="headerlink" title="反编译应用"></a>反编译应用</h2><ul>
+<li>在终端打开。</li>
+</ul>
+<p><img src="/../../images/IntelliJ-IDEA-%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95Android%E5%BA%94%E7%94%A8/2022-04-06-20-25-21-image.png"></p>
+<ul>
+<li>使用<code>apktool</code>。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">┌──(webb㉿kali)-[~/…/build/outputs/apk/debug]</span><br><span class="line">└─$ apktool d app-debug.apk       </span><br><span class="line">Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=<span class="literal">true</span></span><br><span class="line">I: Using Apktool 2.5.0-dirty on app-debug.apk</span><br><span class="line">I: Loading resource table...</span><br><span class="line">I: Decoding AndroidManifest.xml with resources...</span><br><span class="line">I: Loading resource table from file: /home/webb/.local/share/apktool/framework/1.apk</span><br><span class="line">I: Regular manifest package...</span><br><span class="line">I: Decoding file-resources...</span><br><span class="line">I: Decoding values */* XMLs...</span><br><span class="line">I: Baksmaling classes.dex...</span><br><span class="line">I: Baksmaling classes3.dex...</span><br><span class="line">I: Baksmaling classes2.dex...</span><br><span class="line">I: Copying assets and libs...</span><br><span class="line">I: Copying unknown files...</span><br><span class="line">I: Copying original files...</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果没有<code>apktool</code>就使用<code>sudo apt-get install apktool -y</code>。</li>
+</ul>
+<h2 id="打开反编译完成的项目"><a href="#打开反编译完成的项目" class="headerlink" title="打开反编译完成的项目"></a>打开反编译完成的项目</h2><ul>
+<li>打开项目。</li>
+</ul>
+<p><img src="/../../images/IntelliJ-IDEA-%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95Android%E5%BA%94%E7%94%A8/2022-04-06-20-09-55-image.png"></p>
+<ul>
+<li>配置Android框架。</li>
+</ul>
+<p><img src="/../../images/IntelliJ-IDEA-%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95Android%E5%BA%94%E7%94%A8/2022-04-06-20-12-54-image.png"></p>
+<h2 id="配置调试功能"><a href="#配置调试功能" class="headerlink" title="配置调试功能"></a>配置调试功能</h2><ul>
+<li>找到需要调试的文件。</li>
+</ul>
+<p><img src="/../../images/IntelliJ-IDEA-%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95Android%E5%BA%94%E7%94%A8/2022-04-06-20-13-55-image.png"></p>
+<ul>
+<li>找到需要调试的代码。</li>
+</ul>
+<p><img src="/../../images/IntelliJ-IDEA-%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95Android%E5%BA%94%E7%94%A8/2022-04-06-20-15-20-image.png"></p>
+<ul>
+<li>使用IntelliJ IDEA的调试功能。</li>
+</ul>
+<p><img src="/../../images/IntelliJ-IDEA-%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95Android%E5%BA%94%E7%94%A8/2022-04-06-20-18-04-image.png"></p>
+<ul>
+<li>调试功能开启完成。</li>
+</ul>
+<p><img src="/../../images/IntelliJ-IDEA-%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95Android%E5%BA%94%E7%94%A8/2022-04-06-20-18-37-image.png"></p>
+<h2 id="开始调试"><a href="#开始调试" class="headerlink" title="开始调试"></a>开始调试</h2><ul>
+<li>启动软件。</li>
+</ul>
+<p><img src="/../../images/IntelliJ-IDEA-%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95Android%E5%BA%94%E7%94%A8/2022-04-06-20-21-44-image.png"></p>
+<ul>
+<li>点击应用栏触发代码和触发调试功能。</li>
+</ul>
+<p><img src="/../../images/IntelliJ-IDEA-%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95Android%E5%BA%94%E7%94%A8/2022-04-06-20-22-48-image.png"></p>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2022/04/15/wpscan/%E8%A7%A3%E5%86%B3wpscan%E6%89%BE%E4%B8%8D%E5%88%B0webrick%E9%94%99%E8%AF%AF/">prev</a><a class="next" href="/2022/04/02/Linux/%E4%BA%A4%E5%8F%89%E7%BC%96%E7%A8%8B/">next</a></div><div class="copyright"><p>&copy; 2022 <a href="http://webb-l.top">Webb</a><br>Powered by <a href="https://hexo.io/" rel="noreferrer" target="_blank">Hexo</a></p></div></footer></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/barba.js/1.0.0/barba.min.js"></script><script>document.addEventListener('DOMContentLoaded', function() {
+    Barba.Pjax.start()
+})</script></body></html>
